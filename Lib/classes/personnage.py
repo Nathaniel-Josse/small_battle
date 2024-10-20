@@ -6,7 +6,7 @@ class Personnage(ABC):
             raise TypeError("La classe Personnage n'est pas instanciable")
         return object.__new__(cls)
     
-    def __init__(self, nom, vie, degats, experience, expRate, tour):
+    def __init__(self, nom: str, vie: int, degats: int, experience: int, expRate: float, tour: str) -> None:
         self.__nom = nom
         self.__vie = vie
         self.max_vie = vie
@@ -37,15 +37,15 @@ class Personnage(ABC):
     
         
     @property
-    def nom(self):
+    def nom(self) -> str:
         return self.__nom
     
     @property
-    def vie(self):
+    def vie(self) -> int:
         return self.__vie
     
     @vie.setter
-    def vie(self, value):
+    def vie(self, value: int) -> None:
         if value < 0:
             self.__vie = 0
         elif value > self.max_vie:
@@ -54,21 +54,21 @@ class Personnage(ABC):
             self.__vie = value
     
     @property
-    def degats(self):
+    def degats(self) -> int:
         return self.__degats
     
     @property
-    def experience(self):
+    def experience(self) -> int:
         return self.__experience
     
     @experience.setter
-    def experience(self, value):
+    def experience(self, value) -> None:
         self.__experience = value
     
     @property
-    def exp_rate(self):
+    def exp_rate(self) -> float:
         return self.__expRate
     
     @exp_rate.setter
-    def exp_rate(self, exp_rate):
+    def exp_rate(self, exp_rate) -> None:
         self.__expRate = exp_rate

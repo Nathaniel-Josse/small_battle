@@ -1,5 +1,6 @@
-from Lib.classes import battle_manager
+from Lib.classes.battle_manager import BattleManager
 
 if __name__ == "__main__":
-    battle_manager.launch()    
+    battle = BattleManager()
+    battle.launch()   
     

@@ -10,9 +10,11 @@ class Magicien(Personnage):
     
     def frapper(self, cible: str, degats: int) -> int:
             randomMove = r.randint(1, 2)
+            # Frappe 1 : dégâts * 2 + expérience
             if randomMove == 1:
                 p.print_lbl(f"🧊 {self.nom} lance une boule de glace sur {cible} !")
                 return degats * 2 + self.experience
+            # Frappe 2 : dégâts. Augmente son taux d'expérience de 0.5 à 2.0.
             else:
                 p.print_lbl(f"➰ {self.nom} teste {cible} en envoyant un faux sort pour augmenter sa future expérience !")
                 exp_rate_increase = r.randint(1, 100) / 50
@@ -21,6 +23,7 @@ class Magicien(Personnage):
                 return degats     
             
     def hit_or_miss(self, degats: int, envoyeur: str) -> int:
+        # 85% de chance de toucher
         if r.randint(1, 100) > 15:
             self.recoit_degats(degats, envoyeur)
             return 1
@@ -36,6 +39,7 @@ class Magicien(Personnage):
         p.print_lbl(f"💥 {self.nom} a subi {degats} points de dégâts à cause de {envoyeur} !")
     
     def gagne_experience(self, exp_recue: int) -> None:
+        # Exp gagnée = exp reçue * taux d'expérience. Arrondi supérieur.
         exp_gagnee = m.ceil(exp_recue * self.exp_rate)
         self.experience += exp_gagnee
         p.print_lbl(f"🔼 {self.nom} a gagné {exp_gagnee} points d'expérience !")

@@ -71,3 +71,10 @@ class BattleManager():
             
         p.print_lbl(f"Le combat est terminé ! ✋\n{roi_sorcier.nom} a {roi_sorcier.vie} PV et {magicien.nom} a {magicien.vie} PV.")
         p.print_lbl(f"Le combat a duré {turnNumber} tours.")
+        
+        restart = input("Voulez-vous rejouer ? (o/n) : ")
+        if restart == 'o':
+            BattleManager().launch()
+        else:
+            p.print_lbl("Merci d'avoir joué ! 👋")
+            return

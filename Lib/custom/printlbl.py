@@ -8,6 +8,6 @@ def print_lbl(string: str) -> None:
     """
     for character in string:
         print(character, end='', flush=True)
-        sleep(0.02) # adds a cooldown between each character printed
-    print() # new line at the end of the string
-    sleep(0.7) # adds a cooldown between each string printed
+        sleep(0.02) # cooldown entre chaque caractère
+    print() # nouvelle ligne entre chaque string
+    sleep(0.7) # cooldown entre chaque string
